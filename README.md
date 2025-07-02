@@ -45,8 +45,25 @@ A full-stack web dashboard for managing employees, tasks, and real-time attendan
 ## 📁 Project Structure (Monorepo)
 
 /parlour-project
-├── /frontend-parlour-dashboard # Next.js App (UI)
-└── /backend-parlour-api # Express + MongoDB API
+├── /frontend-parlour-dashboard     → Next.js 15 + TypeScript + TailwindCSS + ShadCN UI
+│   ├── /app                        → App Router pages like /login, /dashboard, /attendance
+│   ├── /components                 → Reusable UI components (e.g. Navbar, EmployeeCard)
+│   ├── /lib                        → Helper functions (e.g. auth utils, API fetchers)
+│   ├── /hooks                      → Custom React hooks
+│   ├── /context                    → Auth context and providers
+│   ├── /styles                     → Global CSS and Tailwind config
+│   └── tailwind.config.ts         → Tailwind + ShadCN config
+│
+├── /backend-parlour-api           → Node.js + Express + TypeScript + MongoDB + Socket.IO
+│   ├── /models                    → Mongoose models (User, Employee, Task, Attendance)
+│   ├── /controllers               → Business logic for routes
+│   ├── /routes                    → Express route handlers (auth, employee, task, etc.)
+│   ├── /middlewares               → Auth middleware, error handling
+│   ├── /utils                     → JWT helpers, validators, etc.
+│   ├── /config                    → DB config, server setup
+│   └── server.ts                 → Main entry point
+│
+└── README.md                      → Project documentation (you’re reading it!)
 
 
 ---
