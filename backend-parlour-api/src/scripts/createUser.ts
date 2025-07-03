@@ -1,7 +1,7 @@
 import bcrypt from 'bcryptjs';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import User from '../models/User'; // ensure path is correct
+import User from '../models/User';
 
 dotenv.config();
 
@@ -10,11 +10,7 @@ const createUser = async () => {
     await mongoose.connect(process.env.MONGODB_URI!);
     console.log('✅ Connected to MongoDB');
 
-    const existingUser = await User.findOne({ email: 'admin@parlour.com' });
-    if (existingUser) {
-      console.log('⚠️ User already exists in database');
-      return process.exit(0);
-    }
+    await User.deleteMany(); // ⬅️ Wipe all users
 
     const hashedPassword = await bcrypt.hash('admin123', 10);
     const user = new User({
@@ -24,7 +20,7 @@ const createUser = async () => {
     });
 
     await user.save();
-    console.log('✅ User created successfully');
+    console.log('✅ Superadmin created');
     process.exit(0);
   } catch (error) {
     console.error('❌ Error creating user:', error);
