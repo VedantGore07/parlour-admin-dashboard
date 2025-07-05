@@ -26,20 +26,22 @@ export default function EmployeeForm({ onEmployeeAdded }: Props) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="default">Add Employee</Button>
+        <Button variant="secondary">➕ Add Employee</Button>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className="bg-zinc-900 border border-zinc-700 text-white">
         <form onSubmit={handleSubmit} className="space-y-4">
           <h2 className="text-lg font-semibold">New Employee</h2>
           <Input
             placeholder="Name"
             value={name}
+            className="bg-zinc-800 border-zinc-600 text-white"
             onChange={(e) => setName(e.target.value)}
             required
           />
           <Input
             placeholder="Role"
             value={role}
+            className="bg-zinc-800 border-zinc-600 text-white"
             onChange={(e) => setRole(e.target.value)}
             required
           />

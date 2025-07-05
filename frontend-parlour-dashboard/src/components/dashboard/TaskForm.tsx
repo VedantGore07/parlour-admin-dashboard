@@ -35,21 +35,22 @@ export default function TaskForm({ onTaskAdded }: Props) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button>Add Task</Button>
+        <Button variant="secondary">➕ Add Task</Button>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className="bg-zinc-900 text-white border border-zinc-700">
         <form onSubmit={handleSubmit} className="space-y-4">
           <h2 className="text-lg font-semibold">New Task</h2>
           <Input
             placeholder="Task description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+            className="bg-zinc-800 text-white border-zinc-600"
             required
           />
           <select
             value={assignedTo}
             onChange={(e) => setAssignedTo(e.target.value)}
-            className="w-full border rounded px-3 py-2"
+            className="w-full bg-zinc-800 text-white border border-zinc-600 rounded px-3 py-2"
             required
           >
             <option value="">Select employee</option>
@@ -59,7 +60,9 @@ export default function TaskForm({ onTaskAdded }: Props) {
               </option>
             ))}
           </select>
-          <Button type="submit" className="w-full">Create</Button>
+          <Button type="submit" className="w-full">
+            Create
+          </Button>
         </form>
       </DialogContent>
     </Dialog>
