@@ -42,7 +42,7 @@ A full-stack web dashboard for managing employees, tasks, and real-time attendan
 
 ---
 
-## 📁 Project Structure (Monorepo)
+## 📁 Project Structure (monorepo)
 
 /parlour-project
 ├── /frontend-parlour-dashboard     → Next.js 15 + TypeScript + TailwindCSS + ShadCN UI
